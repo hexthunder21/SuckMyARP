@@ -1,0 +1,3 @@
+minidump==0.0.24
+scapy==2.7.0
+schedule==1.2.2

@@ -62,7 +62,7 @@ The Strange object is below
 {'-' * 40}""")
 
 def main():
-    #gain_arp_file()
+    gain_arp_file()
 
     # Read that file and parse it -> create corelation IP and MAC
     with open("arp-table.txt", 'r') as file:
