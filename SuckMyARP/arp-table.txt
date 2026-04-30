@@ -1,5 +1,0 @@
-192.168.0.1 dev enp0s3 lladdr c0:25:e9:d9:7a:96 STALE
-192.168.0.100 dev enp0s3 lladdr e8:9c:25:bf:59:98 STALE
-192.168.0.100 dev enp0s3 lladdr c0:25:e9:d9:7a:96 STALE
-192.168.0.104 dev lan1 lladdr c0:25:e9:0w:k3:41 STALE
-192.168.0.109 dev lan1 lladdr cb:mx:9l:d9:7a:96 STALE
